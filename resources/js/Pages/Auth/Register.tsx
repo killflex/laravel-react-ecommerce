@@ -98,15 +98,12 @@ export default function Register() {
           <InputError message={errors.password_confirmation} className="mt-2" />
         </div>
 
-        <div className="mt-4 flex items-center justify-end">
-          <Link
-            href={route("login")}
-            className="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-          >
+        <div className="mt-4 flex gap-4 items-center justify-end">
+          <Link href={route("login")} className="link">
             Already registered?
           </Link>
 
-          <PrimaryButton className="ms-4" disabled={processing}>
+          <PrimaryButton className="" disabled={processing}>
             Register
           </PrimaryButton>
         </div>
