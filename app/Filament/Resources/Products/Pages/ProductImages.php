@@ -15,7 +15,7 @@ class ProductImages extends EditRecord
 
     protected static ?string $title = 'Images Product';
     protected static ?string $navigationLabel = 'Images';
-    protected static string|BackedEnum|null $navigationIcon = 'heroicon-s-photo';
+    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-photo';
 
 
     public function form(Schema $schema): Schema

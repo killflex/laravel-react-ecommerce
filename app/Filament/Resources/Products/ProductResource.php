@@ -11,6 +11,7 @@ use App\Models\Product;
 use App\Enums\RolesEnum;
 use App\Filament\Resources\Products\Pages\ProductImages;
 use App\Filament\Resources\Products\Pages\ProductVariationTypes;
+use App\Filament\Resources\Products\Pages\ProductVariation;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
@@ -53,6 +54,7 @@ class ProductResource extends Resource
             'edit' => EditProduct::route('/{record}/edit'),
             'product_images' => ProductImages::route('/{record}/product-images'),
             'variation_types' => ProductVariationTypes::route('/{record}/variation-types'),
+            'variations' => ProductVariation::route('/{record}/variations'),
         ];
     }
 
@@ -62,6 +64,7 @@ class ProductResource extends Resource
                 EditProduct::class,
                 ProductImages::class,
                 ProductVariationTypes::class,
+                ProductVariation::class,
             ]);
     }
 
