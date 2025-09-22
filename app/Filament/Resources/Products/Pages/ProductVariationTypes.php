@@ -25,7 +25,7 @@ class ProductVariationTypes extends EditRecord
     {
         return $schema->components([
             Repeater::make('variationTypes')
-                ->disableLabel()
+                ->hiddenLabel()
                 ->relationship()
                 ->collapsible()
                 ->defaultItems(1)

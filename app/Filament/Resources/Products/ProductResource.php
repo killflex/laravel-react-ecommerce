@@ -20,6 +20,7 @@ use Filament\Tables\Table;
 use Filament\Facades\Filament;
 use Filament\Pages\Enums\SubNavigationPosition;
 use Filament\Resources\Pages\Page;
+use Illuminate\Database\Eloquent\Builder;
 
 class ProductResource extends Resource
 {
@@ -28,6 +29,10 @@ class ProductResource extends Resource
     protected static SubNavigationPosition $recordSubNavigationPosition = SubNavigationPosition::End;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+
+    public static function getEloquentQuery(): Builder {
+        return parent::getEloquentQuery()->forVendor();
+    }
 
     public static function form(Schema $schema): Schema
     {

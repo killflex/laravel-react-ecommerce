@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
+use App\Enums\ProductStatusEnum;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
@@ -50,9 +52,22 @@ class Product extends Model implements HasMedia
         'deleted_at'
     ];
 
+    public function scopeForVendor(Builder $query): Builder {
+        return $query->where('created_by', auth()->user()->id());
+    }
+
+    public function ScopePublished(Builder $query): Builder {
+        return $query->where('status', ProductStatusEnum::Published);
+    }
+
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'created_by');
     }
 
     public function department()
