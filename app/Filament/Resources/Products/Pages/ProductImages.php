@@ -3,10 +3,10 @@
 namespace App\Filament\Resources\Products\Pages;
 
 use App\Filament\Resources\Products\ProductResource;
-use BackedEnum;
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Resources\Pages\EditRecord;
 use Filament\Schemas\Schema;
-use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
+use BackedEnum;
 
 
 class ProductImages extends EditRecord
@@ -30,6 +30,7 @@ class ProductImages extends EditRecord
                 ->reorderable()
                 ->appendFiles()
                 ->preserveFilenames()
+                ->conversion('thumb') // This will trigger conversions
                 ->columnSpan(2)
         ]);
     }
